@@ -50,9 +50,9 @@ function displayValue (value) {
 function pressNumberButton () {
 
 	console.log(this.id);
-	let currentDisplayText = currentDisplayValue();
+	let currentDispText = currentDisplayText();
 	let numberText = this.id
-	let newDisplayText = currentDisplayText + numberText;
+	let newDisplayText = currentDispText + numberText;
 	displayValue(newDisplayText);
 
 }
@@ -62,26 +62,33 @@ function currentDisplayText () {
 	return display.textContent;
 }
 
-function displayTextToNumber () {
-	let currentDisplayText = currentDisplayValue();
-	let displayNumber = Number(currentDisplayText);
+function currentDisplayValue () {
+	let currentDispText = currentDisplayText();
+	let displayNumber = Number(currentDispText);
 	return displayNumber;
 }
 
 function pressOperatorButton () {
 	let operatorPressed = this.className;
 	if (operatorDefined(currentSequence) && firstDefined(currentSequence)) {
-		currentSequence.secondOperand = currentDisplayNumber;
+		currentSequence.secondOperand = currentDisplayValue();
+		console.log(currentSequence);
 		let resultCache = operateObject(currentSequence);
 		clearSequence(currentSequence);
 		currentSequence.firstOperand = resultCache;
 		currentSequence.operator = operatorPressed;
-	} else if (firstDefined(currentSequence) === false && operatorDefined(currentSequence) === false && secondDefined(currentSequence) === false {
-		currentSequence.firstOperand = currentDisplayNumber;
+		clearDisplay();
+		displayValue(currentSequence.firstOperand);
+		console.log(currentSequence);
+	} else if (firstDefined(currentSequence) === false && operatorDefined(currentSequence) === false && secondDefined(currentSequence) === false) {
+		console.log(currentSequence);
+		currentSequence.firstOperand = currentDisplayValue();
 		currentSequence.operator = operatorPressed;
+		clearDisplay();
+		console.log(currentSequence);
 	}
 	
-	clearDisplay();
+	
 	
 
 }
@@ -108,7 +115,7 @@ function clearSequence (sequence) {
 
 
 let currentSequence = {};
-let currentDisplayNumber = displayTextToNumber();
+
 
 let completeSequence = {
 	operator : "add",
