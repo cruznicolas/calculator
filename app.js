@@ -72,6 +72,9 @@ function pressNumberButton () {
 	display2update();
 	console.log(this.id);
 	let currentDispText = currentDisplayText();
+	if (currentDispText == 0) {
+		currentDispText = "";
+	}
 	let numberText = this.id
 	let newDisplayText = currentDispText + numberText;
 	displayValue(newDisplayText);
