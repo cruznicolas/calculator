@@ -1,10 +1,96 @@
-.keyboard div {
-	border: 1px solid black;
-	display:  flex;
+body {
+	display:flex;
+	justify-content: center;
+	align-items: center;
 	flex-direction: column;
+	background-color:darkslategrey;
 }
+
+.calculator {
+	margin: 50px;
+	
+	border: 5px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: darkgoldenrod;
+}
+
+.keyboard {
+	display:  flex;
+	align-items: stretch;
+}
+
+.numpad {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+.otherbuttons {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+}
+
+
 
 .displays {
 	display: flex;
 	flex-direction: column;
+	background-color:cadetblue;
+	border:  2px solid black;
+	border-radius: 10px;
+	width: 100%;
+	margin-bottom: 5px;
 }
+
+.displays div {
+	display:flex;
+	justify-content: right;
+	margin: 0 10px;
+	padding:2px;
+}
+
+.display {
+	font-family:monospace;
+	font-size: xx-large;
+	height:30px;
+	
+}
+
+.display2 {
+	font-family:monospace;
+	font-size: x-large;
+	height:30px;
+}
+
+
+
+.row {
+	display:flex;
+	justify-content: space-around;
+	flex:1;
+}
+
+.button {
+
+	font-size: x-large;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: bisque;
+	border: 2px solid;
+	border-color:black;
+	border-radius: 10px;
+	margin: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex:1;
+	padding: 5px;
+	width: 40px;
+}
+
+
