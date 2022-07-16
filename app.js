@@ -42,13 +42,34 @@ function clearDisplay () {
 	display.innerHTML = "";
 }
 
+function clearDisplay2 () {
+	const display = document.querySelector('.display2');
+	display.innerHTML = "";
+}
+
+
 function displayValue (value) {
 	const display = document.querySelector('.display');
 	display.innerHTML = value;
 }
 
-function pressNumberButton () {
 
+function display2Value (value) {
+	const display = document.querySelector('.display2');
+	display.innerHTML = value;
+}
+
+function display2update () {
+	display2Value(JSON.stringify(currentSequence));
+}
+
+function currentDisplayText () {
+	const display = document.querySelector('.display');
+	return display.textContent;
+}
+
+function pressNumberButton () {
+	display2update();
 	console.log(this.id);
 	let currentDispText = currentDisplayText();
 	let numberText = this.id
@@ -57,10 +78,6 @@ function pressNumberButton () {
 
 }
 
-function currentDisplayText () {
-	const display = document.querySelector('.display');
-	return display.textContent;
-}
 
 function currentDisplayValue () {
 	let currentDispText = currentDisplayText();
@@ -70,23 +87,7 @@ function currentDisplayValue () {
 
 function pressOperatorButton () {
 	let operatorPressed = this.className;
-	if (operatorDefined(currentSequence) && firstDefined(currentSequence)) {
-		currentSequence.secondOperand = currentDisplayValue();
-		console.log(currentSequence);
-		let resultCache = operateObject(currentSequence);
-		clearSequence(currentSequence);
-		currentSequence.firstOperand = resultCache;
-		currentSequence.operator = operatorPressed;
-		clearDisplay();
-		displayValue(currentSequence.firstOperand);
-		console.log(currentSequence);
-	} else if (firstDefined(currentSequence) === false && operatorDefined(currentSequence) === false && secondDefined(currentSequence) === false) {
-		console.log(currentSequence);
-		currentSequence.firstOperand = currentDisplayValue();
-		currentSequence.operator = operatorPressed;
-		clearDisplay();
-		console.log(currentSequence);
-	}
+	
 	
 	
 	
@@ -114,12 +115,16 @@ function clearSequence (sequence) {
 }
 
 
-let currentSequence = {};
+let currentSequence = {
+	operator: "add",
+	firstOperand: 12.11,
+	secondOperand: 13,
+};
 
 
 let completeSequence = {
 	operator : "add",
-	firstOperand: undefined,
+	firstOperand: 12.1,
 	secondOperand : 13,
 }
 let lastResult;

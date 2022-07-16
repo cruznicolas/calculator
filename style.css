@@ -1,3 +1,10 @@
 .keyboard div {
 	border: 1px solid black;
+	display:  flex;
+	flex-direction: column;
+}
+
+.displays {
+	display: flex;
+	flex-direction: column;
 }
